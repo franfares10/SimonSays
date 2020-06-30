@@ -70,7 +70,7 @@
 }
 #ne{
     background: var(--purple);
-    border-bottom-right-radius: 100%;
+    border-top-right-radius: 100%;
 }
 #sw{
     background: var(--yellow);
