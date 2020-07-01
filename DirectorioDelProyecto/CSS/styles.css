@@ -64,6 +64,10 @@
     transition-duration: 0.4s;
 }
 
+.hide{
+    display: none;
+}
+
 #nw{
     background: var(--blue);
     border-top-left-radius: 100%;
@@ -80,3 +84,4 @@
     background: var(--green);
     border-bottom-right-radius: 100%;
 }
+
