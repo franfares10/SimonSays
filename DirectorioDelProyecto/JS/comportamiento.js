@@ -12,10 +12,11 @@ class Juego{
         this.inicializar()
         this.generarSecuencia()
         this.siguienteNivel()
+        this.colores = {azul,violeta,amarillo,verde}
     }
 
     inicializar() {
-        this.colores = {azul,violeta,amarillo,verde}
+        
     }
 
     generarSecuencia(){
@@ -34,7 +35,7 @@ class Juego{
     iluminarSecuencia(secuencia){
         for(var i = 0; i< secuencia.length;i++){
             const color = this.iluminarColor(secuencia[i])
-            console.log(color)
+            //console.log(color)
             setTimeout(() => this.iluminar(color),1000*i)
         }
     }
@@ -54,12 +55,15 @@ class Juego{
     }
 
     iluminar(color){
-        this.colores[color].classList.add('light')
-        //console.log(color)
+        this.colores[color].classList.add('luz')
+        console.log("ilumine")
+       // console.log(color)
+       console.log(`${this.colores[color].classList}`)
         setTimeout(() => this.desiluminar(color),350)
     }
     desiluminar(color){
-        this.colores[color].classList.remove('light')
+        this.colores[color].classList.remove('luz')
+        
     }
 }
 

@@ -42,7 +42,7 @@
 .board-btn{
     width: 250px;
     height: 250px;
-    background: var(--yellow);
+    background: var(--white);
     border: solid 1px var(--white);
 }
 
@@ -69,19 +69,31 @@
 }
 
 #nw{
-    background: var(--blue);
     border-top-left-radius: 100%;
 }
 #ne{
-    background: var(--purple);
     border-top-right-radius: 100%;
 }
 #sw{
-    background: var(--yellow);
     border-bottom-left-radius: 100%;
 }
 #se{
-    background: var(--green);
     border-bottom-right-radius: 100%;
 }
 
+.az{
+    background: var(--blue);
+}
+.vio{
+    background: var(--purple);
+}
+.ama{
+    background: var(--yellow);
+}
+.verd{
+    background: var(--green);
+}
+
+.luz{
+    background: var(--white);
+}
