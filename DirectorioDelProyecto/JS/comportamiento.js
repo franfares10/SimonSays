@@ -137,8 +137,8 @@ class Juego{
             b = []
             a = []
             nivel++
-            this.generarSecuencia()
-            this.siguienteNivel()
+            setTimeout(() => this.generarSecuencia(),1000)
+            setTimeout(() => this.siguienteNivel(),1000)
             console.log('comparado')
     }
 
