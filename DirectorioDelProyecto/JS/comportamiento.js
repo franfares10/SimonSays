@@ -1,34 +1,34 @@
-
 const btnEmpezar = document.getElementById('btnEmpezar')
 const azul = document.getElementById('nw')
 const violeta = document.getElementById('ne')
 const amarillo = document.getElementById('sw')
 const verde = document.getElementById('se')
 
+var cont = 0
 var n = 4
+var respuesta = []
+var sec = []
+var juego = null
+var nivel = 1
 
 class Juego{
     constructor(){
-        this.inicializar()
         this.generarSecuencia()
         this.siguienteNivel()
         this.colores = {azul,violeta,amarillo,verde}
-    }
-
-    inicializar() {
-        
     }
 
     generarSecuencia(){
         this.secuencia = new Array(n)
         for( var i = 0; i<n;i++){
             this.secuencia[i] = (Math.floor(Math.random() * (4 - 1 + 1) + 1))
+            sec[i] = this.secuencia[i]
         }
        console.log(this.secuencia)
-        n+=2 
     }
     siguienteNivel(){
         this.iluminarSecuencia(this.secuencia)
+        this.escuchar()
     }
 
 
@@ -56,22 +56,110 @@ class Juego{
 
     iluminar(color){
         this.colores[color].classList.add('luz')
-        console.log("ilumine")
-       // console.log(color)
-       console.log(`${this.colores[color].classList}`)
         setTimeout(() => this.desiluminar(color),350)
     }
     desiluminar(color){
         this.colores[color].classList.remove('luz')
         
     }
+
+    escuchar(){
+            azul.onclick = function(){
+                juego.iluminar('azul')
+                respuesta[cont] = 1
+                if(respuesta[cont] == sec[cont]){
+                    cont++
+                    if(cont == n){
+                        console.log(respuesta)
+                        juego.comparar(sec,respuesta)
+                        return "final nivel"
+                    }
+                }
+                else{
+                    juego.perder()
+                    return console.log("Perdiste")
+                }
+            }
+            violeta.onclick = function(){
+                juego.iluminar('violeta')
+                respuesta[cont] = 2
+                if(respuesta[cont] == sec[cont]){
+                    cont++
+                    if(cont == n){
+                        console.log(respuesta)
+                        juego.comparar(sec,respuesta)
+                        return "final nivel"
+                    }
+                }
+                else{
+                    juego.perder()
+                    return console.log("Perdiste")
+                }
+            }
+            amarillo.onclick = function(){
+                juego.iluminar('amarillo')
+                respuesta[cont] = 3
+                if(respuesta[cont] == sec[cont]){
+                    cont++
+                    if(cont == n){
+                        console.log(respuesta)
+                        juego.comparar(sec,respuesta)
+                        return "final nivel"
+                    }
+                }
+                else{
+                    juego.perder()
+                    return console.log("Perdiste")
+                }
+            }
+            verde.onclick = function(){
+                juego.iluminar('verde')
+                respuesta[cont] = 4
+                if(respuesta[cont] == sec[cont]){
+                    cont++
+                    if(cont == n){
+                        console.log(respuesta)
+                        juego.comparar(sec,respuesta)
+                        return "final nivel"
+                    }
+                }
+                else{
+                    juego.perder()
+                    return console.log("Perdiste")
+                }
+        }
+
+    }
+
+    comparar(a, b){
+            n+=2
+            cont = 0
+            b = []
+            a = []
+            nivel++
+            this.generarSecuencia()
+            this.siguienteNivel()
+            console.log('comparado')
+    }
+
+    perder(juego){
+        console.log("perdio")
+        juego = null
+        n = 4
+        cont = 0
+        sec = []
+        nivel = 1
+        respuesta = []
+        btnEmpezar.classList.remove('hide') 
+    }
 }
+
 
 
 function empezarJuego(){
     btnEmpezar.onclick = function () {
         btnEmpezar.classList.add('hide')
-        var game = new Juego()
+        juego = new Juego()
     }
 }
 
